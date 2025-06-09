@@ -1,0 +1,22 @@
+[package]
+name = "demo"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+bollard = "0.18.1"
+chrono = "0.4.41"
+clap = { version = "4.5.38", features = ["derive"] }
+libbpf-rs = "0.25.0"
+libc = "0.2.171"
+plain = "0.2.3"
+tokio = { version = "1.45.0", features = ["full"] }
+
+[package.metadata.libbpf]
+bpf-object-dir = "target/bpf"
+
+[build-dependencies]
+libbpf-cargo = {git = "https://github.com/libbpf/libbpf-rs.git", branch="master"}
+vmlinux = { git = "https://github.com/libbpf/vmlinux.h.git", rev = "83a228cf37fc65f2d14e4896a04922b5ee531a94" }
+# libbpf-cargo = "0.24.8"
